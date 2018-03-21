@@ -6,11 +6,11 @@
 
 Annotated PCL data with benign inputs
 
-![Benign input](validation/annotated_pcl_data.gif)
+![Benign input](annotated_pcl_data.gif)
 
 Annotated PCL data with adversarial inputs
 
-![Adv input](validation/adv_annotated_pcl_data.gif)
+![Adv input](adv_annotated_pcl_data.gif)
 
 
 ## Sequential frames
