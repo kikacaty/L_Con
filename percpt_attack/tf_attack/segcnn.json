@@ -1,0 +1,1791 @@
+{
+    "node": [
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "group": {
+                    "i": "1"
+                }, 
+                "kernel_shape": {
+                    "list": {
+                        "i": [
+                            "3", 
+                            "3", 
+                            "128", 
+                            "64"
+                        ]
+                    }
+                }, 
+                "pads": {
+                    "list": {
+                        "i": [
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0", 
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0"
+                        ]
+                    }
+                }, 
+                "strides": {
+                    "list": {
+                        "i": [
+                            "1", 
+                            "1", 
+                            "1", 
+                            "1"
+                        ]
+                    }
+                }, 
+                "use_bias": {
+                    "b": true
+                }
+            }, 
+            "input": [
+                "refine2_concat"
+            ], 
+            "name": "refine2_conv_3x3_2", 
+            "op": "Conv"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "input": [
+                "refine3_deconv"
+            ], 
+            "name": "refine3_deconv_relu", 
+            "op": "Relu"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "32"
+                                    }, 
+                                    {
+                                        "size": "32"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "input": [
+                "refine4_conv_3x3_2"
+            ], 
+            "name": "refine4_conv_3x3_2_relu", 
+            "op": "Relu"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "512"
+                                    }, 
+                                    {
+                                        "size": "512"
+                                    }, 
+                                    {
+                                        "size": "12"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "group": {
+                    "i": "1"
+                }, 
+                "kernel_shape": {
+                    "list": {
+                        "i": [
+                            "4", 
+                            "4", 
+                            "12", 
+                            "48"
+                        ]
+                    }
+                }, 
+                "pads": {
+                    "list": {
+                        "i": [
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0", 
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0"
+                        ]
+                    }
+                }, 
+                "strides": {
+                    "list": {
+                        "i": [
+                            "1", 
+                            "2", 
+                            "2", 
+                            "1"
+                        ]
+                    }
+                }, 
+                "use_bias": {
+                    "b": true
+                }
+            }, 
+            "input": [
+                "refine1_conv_3x3_2_relu"
+            ], 
+            "name": "predict", 
+            "op": "ConvTranspose"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "48"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "input": [
+                "refine1_conv_3x3_2"
+            ], 
+            "name": "refine1_conv_3x3_2_relu", 
+            "op": "Relu"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "axis": {
+                    "i": "3"
+                }
+            }, 
+            "input": [
+                "conv2_2_relu", 
+                "refine3_deconv_relu"
+            ], 
+            "name": "refine2_concat", 
+            "op": "Concat"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "48"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "group": {
+                    "i": "1"
+                }, 
+                "kernel_shape": {
+                    "list": {
+                        "i": [
+                            "3", 
+                            "3", 
+                            "8", 
+                            "48"
+                        ]
+                    }
+                }, 
+                "pads": {
+                    "list": {
+                        "i": [
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0", 
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0"
+                        ]
+                    }
+                }, 
+                "strides": {
+                    "list": {
+                        "i": [
+                            "1", 
+                            "2", 
+                            "2", 
+                            "1"
+                        ]
+                    }
+                }, 
+                "use_bias": {
+                    "b": true
+                }
+            }, 
+            "input": [
+                "input"
+            ], 
+            "name": "conv1_1", 
+            "op": "Conv"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }, 
+                                    {
+                                        "size": "96"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "input": [
+                "refine4_deconv"
+            ], 
+            "name": "refine4_deconv_relu", 
+            "op": "Relu"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "input": [
+                "conv2_2"
+            ], 
+            "name": "conv2_2_relu", 
+            "op": "Relu"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "48"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "group": {
+                    "i": "1"
+                }, 
+                "kernel_shape": {
+                    "list": {
+                        "i": [
+                            "3", 
+                            "3", 
+                            "48", 
+                            "48"
+                        ]
+                    }
+                }, 
+                "pads": {
+                    "list": {
+                        "i": [
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0", 
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0"
+                        ]
+                    }
+                }, 
+                "strides": {
+                    "list": {
+                        "i": [
+                            "1", 
+                            "1", 
+                            "1", 
+                            "1"
+                        ]
+                    }
+                }, 
+                "use_bias": {
+                    "b": true
+                }
+            }, 
+            "input": [
+                "relu1_1"
+            ], 
+            "name": "conv1_2", 
+            "op": "Conv"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "96"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "axis": {
+                    "i": "3"
+                }
+            }, 
+            "input": [
+                "relu1_2", 
+                "refine2_deconv_relu"
+            ], 
+            "name": "refine1_concat", 
+            "op": "Concat"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "16"
+                                    }, 
+                                    {
+                                        "size": "16"
+                                    }, 
+                                    {
+                                        "size": "192"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "group": {
+                    "i": "1"
+                }, 
+                "kernel_shape": {
+                    "list": {
+                        "i": [
+                            "3", 
+                            "3", 
+                            "128", 
+                            "192"
+                        ]
+                    }
+                }, 
+                "pads": {
+                    "list": {
+                        "i": [
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0", 
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0"
+                        ]
+                    }
+                }, 
+                "strides": {
+                    "list": {
+                        "i": [
+                            "1", 
+                            "2", 
+                            "2", 
+                            "1"
+                        ]
+                    }
+                }, 
+                "use_bias": {
+                    "b": true
+                }
+            }, 
+            "input": [
+                "conv4_1_relu"
+            ], 
+            "name": "conv5_1", 
+            "op": "Conv"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "48"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "group": {
+                    "i": "1"
+                }, 
+                "kernel_shape": {
+                    "list": {
+                        "i": [
+                            "4", 
+                            "4", 
+                            "48", 
+                            "64"
+                        ]
+                    }
+                }, 
+                "pads": {
+                    "list": {
+                        "i": [
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0", 
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0"
+                        ]
+                    }
+                }, 
+                "strides": {
+                    "list": {
+                        "i": [
+                            "1", 
+                            "2", 
+                            "2", 
+                            "1"
+                        ]
+                    }
+                }, 
+                "use_bias": {
+                    "b": true
+                }
+            }, 
+            "input": [
+                "refine2_conv_3x3_2_relu"
+            ], 
+            "name": "refine2_deconv", 
+            "op": "ConvTranspose"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "32"
+                                    }, 
+                                    {
+                                        "size": "32"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "group": {
+                    "i": "1"
+                }, 
+                "kernel_shape": {
+                    "list": {
+                        "i": [
+                            "3", 
+                            "3", 
+                            "96", 
+                            "128"
+                        ]
+                    }
+                }, 
+                "pads": {
+                    "list": {
+                        "i": [
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0", 
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0"
+                        ]
+                    }
+                }, 
+                "strides": {
+                    "list": {
+                        "i": [
+                            "1", 
+                            "2", 
+                            "2", 
+                            "1"
+                        ]
+                    }
+                }, 
+                "use_bias": {
+                    "b": true
+                }
+            }, 
+            "input": [
+                "conv3_1_relu"
+            ], 
+            "name": "conv4_1", 
+            "op": "Conv"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "32"
+                                    }, 
+                                    {
+                                        "size": "32"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "input": [
+                "conv4_1"
+            ], 
+            "name": "conv4_1_relu", 
+            "op": "Relu"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }, 
+                                    {
+                                        "size": "96"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "group": {
+                    "i": "1"
+                }, 
+                "kernel_shape": {
+                    "list": {
+                        "i": [
+                            "3", 
+                            "3", 
+                            "64", 
+                            "96"
+                        ]
+                    }
+                }, 
+                "pads": {
+                    "list": {
+                        "i": [
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0", 
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0"
+                        ]
+                    }
+                }, 
+                "strides": {
+                    "list": {
+                        "i": [
+                            "1", 
+                            "2", 
+                            "2", 
+                            "1"
+                        ]
+                    }
+                }, 
+                "use_bias": {
+                    "b": true
+                }
+            }, 
+            "input": [
+                "conv2_2_relu"
+            ], 
+            "name": "conv3_1", 
+            "op": "Conv"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "512"
+                                    }, 
+                                    {
+                                        "size": "512"
+                                    }, 
+                                    {
+                                        "size": "8"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "shape": {
+                    "shape": {
+                        "dim": [
+                            {
+                                "size": "-1"
+                            }, 
+                            {
+                                "size": "512"
+                            }, 
+                            {
+                                "size": "512"
+                            }, 
+                            {
+                                "size": "8"
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "name": "input", 
+            "op": "DataInput"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "32"
+                                    }, 
+                                    {
+                                        "size": "32"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "group": {
+                    "i": "1"
+                }, 
+                "kernel_shape": {
+                    "list": {
+                        "i": [
+                            "4", 
+                            "4", 
+                            "128", 
+                            "192"
+                        ]
+                    }
+                }, 
+                "pads": {
+                    "list": {
+                        "i": [
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0", 
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0"
+                        ]
+                    }
+                }, 
+                "strides": {
+                    "list": {
+                        "i": [
+                            "1", 
+                            "2", 
+                            "2", 
+                            "1"
+                        ]
+                    }
+                }, 
+                "use_bias": {
+                    "b": true
+                }
+            }, 
+            "input": [
+                "conv5_1_relu"
+            ], 
+            "name": "refine5_deconv", 
+            "op": "ConvTranspose"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "group": {
+                    "i": "1"
+                }, 
+                "kernel_shape": {
+                    "list": {
+                        "i": [
+                            "3", 
+                            "3", 
+                            "64", 
+                            "64"
+                        ]
+                    }
+                }, 
+                "pads": {
+                    "list": {
+                        "i": [
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0", 
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0"
+                        ]
+                    }
+                }, 
+                "strides": {
+                    "list": {
+                        "i": [
+                            "1", 
+                            "1", 
+                            "1", 
+                            "1"
+                        ]
+                    }
+                }, 
+                "use_bias": {
+                    "b": true
+                }
+            }, 
+            "input": [
+                "conv2_1_relu"
+            ], 
+            "name": "conv2_2", 
+            "op": "Conv"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "group": {
+                    "i": "1"
+                }, 
+                "kernel_shape": {
+                    "list": {
+                        "i": [
+                            "3", 
+                            "3", 
+                            "48", 
+                            "64"
+                        ]
+                    }
+                }, 
+                "pads": {
+                    "list": {
+                        "i": [
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0", 
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0"
+                        ]
+                    }
+                }, 
+                "strides": {
+                    "list": {
+                        "i": [
+                            "1", 
+                            "2", 
+                            "2", 
+                            "1"
+                        ]
+                    }
+                }, 
+                "use_bias": {
+                    "b": true
+                }
+            }, 
+            "input": [
+                "relu1_2"
+            ], 
+            "name": "conv2_1", 
+            "op": "Conv"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "16"
+                                    }, 
+                                    {
+                                        "size": "16"
+                                    }, 
+                                    {
+                                        "size": "192"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "input": [
+                "conv5_1"
+            ], 
+            "name": "conv5_1_relu", 
+            "op": "Relu"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "input": [
+                "refine2_conv_3x3_2"
+            ], 
+            "name": "refine2_conv_3x3_2_relu", 
+            "op": "Relu"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "48"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "input": [
+                "refine2_deconv"
+            ], 
+            "name": "refine2_deconv_relu", 
+            "op": "Relu"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "48"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "group": {
+                    "i": "1"
+                }, 
+                "kernel_shape": {
+                    "list": {
+                        "i": [
+                            "3", 
+                            "3", 
+                            "96", 
+                            "48"
+                        ]
+                    }
+                }, 
+                "pads": {
+                    "list": {
+                        "i": [
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0", 
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0"
+                        ]
+                    }
+                }, 
+                "strides": {
+                    "list": {
+                        "i": [
+                            "1", 
+                            "1", 
+                            "1", 
+                            "1"
+                        ]
+                    }
+                }, 
+                "use_bias": {
+                    "b": true
+                }
+            }, 
+            "input": [
+                "refine1_concat"
+            ], 
+            "name": "refine1_conv_3x3_2", 
+            "op": "Conv"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "32"
+                                    }, 
+                                    {
+                                        "size": "32"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "input": [
+                "refine5_deconv"
+            ], 
+            "name": "refine5_deconv_relu", 
+            "op": "Relu"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "input": [
+                "conv2_1"
+            ], 
+            "name": "conv2_1_relu", 
+            "op": "Relu"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "48"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "input": [
+                "conv1_1"
+            ], 
+            "name": "relu1_1", 
+            "op": "Relu"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }, 
+                                    {
+                                        "size": "48"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "input": [
+                "conv1_2"
+            ], 
+            "name": "relu1_2", 
+            "op": "Relu"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }, 
+                                    {
+                                        "size": "192"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "axis": {
+                    "i": "3"
+                }
+            }, 
+            "input": [
+                "conv3_1_relu", 
+                "refine4_deconv_relu"
+            ], 
+            "name": "refine3_concat", 
+            "op": "Concat"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "32"
+                                    }, 
+                                    {
+                                        "size": "32"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "group": {
+                    "i": "1"
+                }, 
+                "kernel_shape": {
+                    "list": {
+                        "i": [
+                            "3", 
+                            "3", 
+                            "256", 
+                            "128"
+                        ]
+                    }
+                }, 
+                "pads": {
+                    "list": {
+                        "i": [
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0", 
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0"
+                        ]
+                    }
+                }, 
+                "strides": {
+                    "list": {
+                        "i": [
+                            "1", 
+                            "1", 
+                            "1", 
+                            "1"
+                        ]
+                    }
+                }, 
+                "use_bias": {
+                    "b": true
+                }
+            }, 
+            "input": [
+                "refine4_concat"
+            ], 
+            "name": "refine4_conv_3x3_2", 
+            "op": "Conv"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }, 
+                                    {
+                                        "size": "96"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "group": {
+                    "i": "1"
+                }, 
+                "kernel_shape": {
+                    "list": {
+                        "i": [
+                            "3", 
+                            "3", 
+                            "192", 
+                            "96"
+                        ]
+                    }
+                }, 
+                "pads": {
+                    "list": {
+                        "i": [
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0", 
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0"
+                        ]
+                    }
+                }, 
+                "strides": {
+                    "list": {
+                        "i": [
+                            "1", 
+                            "1", 
+                            "1", 
+                            "1"
+                        ]
+                    }
+                }, 
+                "use_bias": {
+                    "b": true
+                }
+            }, 
+            "input": [
+                "refine3_concat"
+            ], 
+            "name": "refine3_conv_3x3_2", 
+            "op": "Conv"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }, 
+                                    {
+                                        "size": "96"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "group": {
+                    "i": "1"
+                }, 
+                "kernel_shape": {
+                    "list": {
+                        "i": [
+                            "4", 
+                            "4", 
+                            "96", 
+                            "128"
+                        ]
+                    }
+                }, 
+                "pads": {
+                    "list": {
+                        "i": [
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0", 
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0"
+                        ]
+                    }
+                }, 
+                "strides": {
+                    "list": {
+                        "i": [
+                            "1", 
+                            "2", 
+                            "2", 
+                            "1"
+                        ]
+                    }
+                }, 
+                "use_bias": {
+                    "b": true
+                }
+            }, 
+            "input": [
+                "refine4_conv_3x3_2_relu"
+            ], 
+            "name": "refine4_deconv", 
+            "op": "ConvTranspose"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }, 
+                                    {
+                                        "size": "96"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "input": [
+                "conv3_1"
+            ], 
+            "name": "conv3_1_relu", 
+            "op": "Relu"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "128"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "group": {
+                    "i": "1"
+                }, 
+                "kernel_shape": {
+                    "list": {
+                        "i": [
+                            "4", 
+                            "4", 
+                            "64", 
+                            "96"
+                        ]
+                    }
+                }, 
+                "pads": {
+                    "list": {
+                        "i": [
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0", 
+                            "0", 
+                            "1", 
+                            "1", 
+                            "0"
+                        ]
+                    }
+                }, 
+                "strides": {
+                    "list": {
+                        "i": [
+                            "1", 
+                            "2", 
+                            "2", 
+                            "1"
+                        ]
+                    }
+                }, 
+                "use_bias": {
+                    "b": true
+                }
+            }, 
+            "input": [
+                "refine3_conv_3x3_2_relu"
+            ], 
+            "name": "refine3_deconv", 
+            "op": "ConvTranspose"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }, 
+                                    {
+                                        "size": "64"
+                                    }, 
+                                    {
+                                        "size": "96"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "input": [
+                "refine3_conv_3x3_2"
+            ], 
+            "name": "refine3_conv_3x3_2_relu", 
+            "op": "Relu"
+        }, 
+        {
+            "attr": {
+                "_output_shapes": {
+                    "list": {
+                        "shape": [
+                            {
+                                "dim": [
+                                    {
+                                        "size": "-1"
+                                    }, 
+                                    {
+                                        "size": "32"
+                                    }, 
+                                    {
+                                        "size": "32"
+                                    }, 
+                                    {
+                                        "size": "256"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }, 
+                "axis": {
+                    "i": "3"
+                }
+            }, 
+            "input": [
+                "conv4_1_relu", 
+                "refine5_deconv_relu"
+            ], 
+            "name": "refine4_concat", 
+            "op": "Concat"
+        }
+    ]
+}
