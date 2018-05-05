@@ -1,0 +1,10 @@
+*.gif
+*.png
+*.jpg
+*.bag
+percpt_attack/annotated_video/*
+percpt_attack/video/*
+percpt_attack/tf_logs/*
+percpt_attack/tf_logs_test/*
+percpt/*
+PCLGen/*
